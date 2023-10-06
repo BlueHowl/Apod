@@ -1,32 +1,30 @@
 <script lang="ts">
-    import ApodSection from "./ApodSection.svelte";
-    import RainbowTitle from "./RainbowTitle.svelte";
+  import ApodSection from "./ApodSection.svelte";
+  import RainbowTitle from "./RainbowTitle.svelte";
 
-    let explanation : string = "";
+  let explanation: string = "";
 
-    function handleApodMessage(event : CustomEvent) {
+  function handleApodMessage(event: CustomEvent) {
     explanation = event.detail.explanation;
   }
-
 </script>
 
+<RainbowTitle title="Mes superbes Apods !" />
 
-<RainbowTitle title="Mes superbes Apods !"></RainbowTitle>
-
-<ApodSection on:message={handleApodMessage}></ApodSection>
+<ApodSection on:message={handleApodMessage} />
 
 <div id="apodDescription">
-    <p>{explanation}</p>
+  <p>{explanation}</p>
 </div>
 
-
 <style>
-    #apodDescription {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 9999;
-        background-color: rgba(0, 0, 0, 0.7);
-    }
+  #apodDescription {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+  }
 </style>
