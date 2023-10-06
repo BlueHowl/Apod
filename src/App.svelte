@@ -1,23 +1,22 @@
 <script lang="ts">
   import { Router, Route, Link } from 'svelte-routing';
 
-  import ApodHolder from './lib/ApodHolder.svelte';
   import Footer from './lib/Footer.svelte';
   import Header from './lib/Header.svelte';
   import RainbowTitle from './lib/RainbowTitle.svelte';
+  import Home from './lib/Home.svelte';
 
   export let url = "";
 
 </script>
 
-<Router {url}>
+<Router {url}><!--basepath = "/~d170051/APOD">-->
   <Header></Header>
-
   <main class="app">
-    <Route path="/nasa-apods" component={ApodHolder} />
+    <Route path="/~d170051/APOD/home" component={Home} />
 
-    <Route path="/my-apods">
-      <RainbowTitle title="Coucou !"></RainbowTitle>
+    <Route path="/~d170051/APOD/my-apods">
+      <RainbowTitle title="Coucou Mr Hendrikx !"></RainbowTitle>
     </Route>
   </main>
 </Router>

@@ -6,8 +6,8 @@
 <header class="apodHeader">
     <nav>
         <ul>
-            <li><Link to="/nasa-apods" style="color: white;">Nasa Apods</Link></li>
-            <li><Link to="/my-apods" style="color: white;">My Apods</Link></li>
+            <li><Link to="/~d170051/APOD/home" style="color: white;">Home</Link></li>
+            <li><Link to="/~d170051/APOD/my-apods" style="color: white;">My Apods</Link></li>
         </ul>
     </nav>
 </header>

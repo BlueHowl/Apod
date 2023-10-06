@@ -3,26 +3,28 @@
     import { createEventDispatcher } from 'svelte';
 
     export let source : string;
-    export let description : string;
+    export let title : string;
+    export let date : string;
     export let id : number;
 
 	const dispatch = createEventDispatcher();
 
 	function sayApodId() {
 		dispatch('message', {
-			text: id
+			id: id
 		});
 	}
 
   </script>
   
-<section class="apodArticle">
-    <img src={source} alt={description.slice(0, 250)+" . . ."}/>
+<article class="apodArticle" on:click={sayApodId} on:keypress={sayApodId}>
+    <h3>{title}</h3>
+    <img src={source} alt={title}/>
     <div class="buttonHolder">
-        <Button label="Ajouter au favoris" onClick={sayApodId}></Button>
+        <Button label="Afficher la description" onClick={sayApodId}></Button>
     </div>
-    <p>{description}</p>
-</section>
+    <p>{date}</p>
+</article>
 
 <style>
     .apodArticle {
@@ -37,7 +39,14 @@
         border: 4px solid black;
         border-radius: 8px;
 
-        text-align: justify;
+        opacity: 1;
+
+        color: black;
+        text-align: center;
+    }
+
+    .apodArticle:hover {
+        opacity: 0.8;
     }
 
     .apodArticle img {
@@ -50,11 +59,6 @@
     .buttonHolder {
         width: fit-content;
         align-self: center;
-    }
-
-    .apodArticle p {
-        padding: 12px;
-        color: black;
     }
 
 </style>
