@@ -10,7 +10,7 @@
 
 </script>
 
-<Router {url} >
+<Router {url}>
   <Header></Header>
 
   <main class="app">

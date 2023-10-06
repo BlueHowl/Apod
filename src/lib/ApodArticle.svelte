@@ -1,15 +1,25 @@
 <script lang="ts">
     import Button from "./Button.svelte";
+    import { createEventDispatcher } from 'svelte';
 
     export let source : string;
     export let description : string;
-    export let onFavClick: () => void;
+    export let id : number;
+
+	const dispatch = createEventDispatcher();
+
+	function sayApodId() {
+		dispatch('message', {
+			text: id
+		});
+	}
+
   </script>
   
 <section class="apodArticle">
-    <img src={source} alt={description.slice(0, 250)}/>
+    <img src={source} alt={description.slice(0, 250)+" . . ."}/>
     <div class="buttonHolder">
-        <Button label="Ajouter au favoris" onClick={onFavClick}></Button>
+        <Button label="Ajouter au favoris" onClick={sayApodId}></Button>
     </div>
     <p>{description}</p>
 </section>
