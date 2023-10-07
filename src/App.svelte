@@ -13,6 +13,7 @@
   ><!--basepath = "/~d170051/APOD" à modifier >-->
   <Header />
   <main class="app">
+    <!--A modifier, l'URL de départ doit être configurée à /~d170051/APOD/ et non en dur comme ci-dessous-->
     <Route path="/~d170051/APOD/" component={Home} />
 
     <Route path="/~d170051/APOD/my-apods">

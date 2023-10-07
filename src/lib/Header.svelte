@@ -3,6 +3,7 @@
 </script>
 
 <header class="apodHeader">
+  <!--A modifier, l'URL de départ doit être configurée à /~d170051/APOD/ et non en dur comme ci-dessous-->
   <nav>
     <ul>
       <li><Link to="/~d170051/APOD/" style="color: white;">Home</Link></li>
