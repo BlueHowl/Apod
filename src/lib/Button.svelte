@@ -1,9 +1,6 @@
 <script lang="ts">
   export let label: string;
-
-  function onClick() {
-    console.log("Bouton cliqué");
-  }
+  export let onClick: () => void;
 </script>
 
 <button class="customButton" on:click={onClick}>

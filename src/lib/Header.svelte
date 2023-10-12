@@ -21,7 +21,6 @@
 
   .apodHeader ul {
     display: flex;
-
     margin: 0;
     padding: 2rem;
   }
@@ -29,9 +28,7 @@
   .apodHeader li {
     text-decoration: none;
     list-style: none;
-
     margin: 0 12px 0 12px;
-
     font-size: 1.2rem;
   }
 </style>
