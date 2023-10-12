@@ -9,22 +9,22 @@
 
   const dispatch = createEventDispatcher();
 
-  function sayApodId() {
+  function sayArticleId() {
     dispatch("message", { id: id });
   }
 </script>
 
-<article class="apodArticle" on:click={sayApodId} on:keypress={sayApodId}>
+<article class="dateArticle" on:click={sayArticleId} on:keypress={sayArticleId}>
   <h3>{title}</h3>
   <img src={source} alt={title} />
   <div class="buttonHolder">
-    <Button label="Afficher la description" onCaca={sayApodId} />
+    <Button label="Afficher la description" onClick={sayArticleId} />
   </div>
   <p>{date}</p>
 </article>
 
 <style>
-  .apodArticle {
+  .dateArticle {
     flex-basis: 0;
     box-sizing: border-box;
     margin-bottom: 12px;
@@ -38,11 +38,11 @@
     text-align: center;
   }
 
-  .apodArticle:hover {
+  .dateArticle:hover {
     opacity: 0.8;
   }
 
-  .apodArticle img {
+  .dateArticle img {
     padding: 8px;
     height: 275px;
     width: 450px;
