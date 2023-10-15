@@ -3,7 +3,7 @@
   export let onClick: () => void;
 </script>
 
-<button class="customButton" on:click={onClick}>
+<button class="customButton" on:click|stopPropagation={onClick}>
   {label}
 </button>
 

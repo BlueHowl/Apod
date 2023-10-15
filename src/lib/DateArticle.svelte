@@ -9,16 +9,25 @@
 
   const dispatch = createEventDispatcher();
 
-  function sayArticleId() {
-    dispatch("message", { id: id });
+  let isSelectedArticle: boolean = false;
+
+  function onSelectedArticle() {
+    isSelectedArticle = !isSelectedArticle;
+    dispatch("selectedArticle", { id: id, isSelected: isSelectedArticle });
   }
 </script>
 
-<article class="dateArticle" on:click={sayArticleId} on:keypress={sayArticleId}>
+<article
+  id="dateArticle"
+  class="dateArticle"
+  style={isSelectedArticle ? "box-shadow: 0 -0 15px teal;" : ""}
+  on:click={onSelectedArticle}
+  on:keypress={onSelectedArticle}
+>
   <h3>{title}</h3>
   <img src={source} alt={title} />
   <div class="buttonHolder">
-    <Button label="Afficher la description" onClick={sayArticleId} />
+    <Button label="Afficher la description" onClick={onSelectedArticle} />
   </div>
   <p>{date}</p>
 </article>

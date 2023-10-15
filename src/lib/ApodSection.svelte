@@ -2,9 +2,17 @@
   import { createEventDispatcher } from "svelte";
   import { ApodSample } from "../domains/apod-sample";
   import DateArticle from "./DateArticle.svelte";
+  import {
+    incrementNbrSelectedCards,
+    decrementNbrSelectedCards,
+    nbrCards,
+  } from "./stores";
+
+  nbrCards.set(ApodSample.length);
 
   //gestion events
-  function handleApodMessage(event: CustomEvent) {
+  function handleApodSelection(event: CustomEvent) {
+    updateSelectionStatus(event.detail.isSelected);
     sendApodExplanation(ApodSample[event.detail.id].explanation);
   }
 
@@ -15,6 +23,10 @@
       explanation: text,
     });
   }
+
+  function updateSelectionStatus(isSelected: boolean) {
+    isSelected ? incrementNbrSelectedCards() : decrementNbrSelectedCards();
+  }
 </script>
 
 <section class="apodSection">
@@ -24,7 +36,7 @@
       title={apod.title}
       date={apod.date}
       id={i}
-      on:message={handleApodMessage}
+      on:selectedArticle={handleApodSelection}
     />
   {/each}
 </section>
