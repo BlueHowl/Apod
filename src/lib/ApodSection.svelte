@@ -13,6 +13,9 @@
   //gestion events
   function handleApodSelection(event: CustomEvent) {
     updateSelectionStatus(event.detail.isSelected);
+  }
+
+  function handleShowArticleDescription(event: CustomEvent) {
     sendApodExplanation(ApodSample[event.detail.id].explanation);
   }
 
@@ -37,6 +40,7 @@
       date={apod.date}
       id={i}
       on:selectedArticle={handleApodSelection}
+      on:showArticleDescription={handleShowArticleDescription}
     />
   {/each}
 </section>
