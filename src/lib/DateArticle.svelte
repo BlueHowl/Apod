@@ -20,6 +20,10 @@
     dispatch("showArticleDescription", { id: id});
   }
 
+  function onNavToDetails() {
+    dispatch("navToDetails", { id: id});
+  }
+
 </script>
 
 <article
@@ -33,6 +37,7 @@
   <img src={source} alt={title} />
   <div class="buttonHolder">
     <Button label="Afficher la description" onClick={onShowDescription} />
+    <Button label="Afficher les détails" onClick={onNavToDetails} />
   </div>
   <p>{date}</p>
 </article>

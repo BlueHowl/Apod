@@ -8,7 +8,7 @@
     <ul>
       <li><Link to="/" style="color: white;">Home</Link></li>
       <li>
-        <Link to="/my-apods" style="color: white;">My Apods</Link>
+        <Link to="/surprise" style="color: white;">Surprise</Link>
       </li>
     </ul>
   </nav>
