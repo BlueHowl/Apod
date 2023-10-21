@@ -37,9 +37,6 @@
   function updateSelectionStatus(isSelected: boolean) {
     isSelected ? incrementNbrSelectedCards() : decrementNbrSelectedCards();
   }
-
-
-  
 </script>
 
 <section class="apodSection">

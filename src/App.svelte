@@ -6,34 +6,35 @@
   import RainbowTitle from "./lib/RainbowTitle.svelte";
   import Home from "./lib/Home.svelte";
   import ArticlePage from "./lib/ArticlePage.svelte";
-    import TestPage from "./lib/TestPage.svelte";
-  //import { createHistory, createMemorySource } from "svelte-navigator";
+  import ApodPage from "./lib/ApodPage.svelte";
 
-	//const history = createHistory(createMemorySource());
+  import surpriseImage from "./assets/rickroll.gif";
 
   let basepath = import.meta.env.BASE_URL;
-
-  export let url = "";
+  let url = "";
 </script>
 
-<Router {url} basepath = {basepath} >
+<Router {url} {basepath}>
   <Header />
   <main class="app">
     <Route component={Home} />
 
     <Route path="/surprise">
       <RainbowTitle title="Coucou Mr Hendrikx !" />
-      <img src="src\assets\rickroll.gif" alt="rickroll" style="position: fixed; bottom: 0px" />
+      <img
+        src={surpriseImage}
+        alt="rickroll"
+        style="position: fixed; bottom: 0px"
+      />
     </Route>
 
-    <Route path="/article-details" component={ArticlePage}></Route>
+    <Route path="/article-details" component={ArticlePage} />
 
-    <!-- Les deux solutions sont équivalente -->
-    <Route path="blog/:id" component="{TestPage}" />
-    <Route path="blog/:id" let:params>
-      <TestPage id="{params.id}" />
+    <!-- Les deux solutions ci-dessous sont équivalentes -->
+    <Route path="/apod/:id" component={ApodPage} />
+    <Route path="/apod/:id" let:params>
+      <ApodPage id={params.id} />
     </Route>
-
   </main>
 </Router>
 
