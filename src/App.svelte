@@ -11,10 +11,9 @@
   import surpriseImage from "./assets/rickroll.gif";
 
   let basepath = import.meta.env.BASE_URL;
-  let url = "";
 </script>
 
-<Router {url} {basepath}>
+<Router {basepath}>
   <Header />
   <main class="app">
     <Route component={Home} />
