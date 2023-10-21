@@ -6,17 +6,20 @@
   import RainbowTitle from "./lib/RainbowTitle.svelte";
   import Home from "./lib/Home.svelte";
   import ArticlePage from "./lib/ArticlePage.svelte";
-  import { createHistory, createMemorySource } from "svelte-navigator";
+    import TestPage from "./lib/TestPage.svelte";
+  //import { createHistory, createMemorySource } from "svelte-navigator";
 
-	const history = createHistory(createMemorySource());
+	//const history = createHistory(createMemorySource());
+
+  let basepath = import.meta.env.BASE_URL;
 
   export let url = "";
 </script>
 
-<Router {url} history={history} basepath = "/~d170051/APOD" >
+<Router {url} basepath = {basepath} >
   <Header />
   <main class="app">
-    <Route path="/" component={Home} />
+    <Route component={Home} />
 
     <Route path="/surprise">
       <RainbowTitle title="Coucou Mr Hendrikx !" />
@@ -24,6 +27,13 @@
     </Route>
 
     <Route path="/article-details" component={ArticlePage}></Route>
+
+    <!-- Les deux solutions sont équivalente -->
+    <Route path="blog/:id" component="{TestPage}" />
+    <Route path="blog/:id" let:params>
+      <TestPage id="{params.id}" />
+    </Route>
+
   </main>
 </Router>
 
