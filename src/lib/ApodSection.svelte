@@ -2,21 +2,31 @@
   import { createEventDispatcher } from "svelte";
   import { ApodSample } from "../domains/apod-sample";
   import DateArticle from "./DateArticle.svelte";
+  import { useNavigate } from "svelte-navigator";
   import {
     incrementNbrSelectedCards,
     decrementNbrSelectedCards,
     nbrCards,
   } from "./stores";
 
+  const dispatch = createEventDispatcher();
+
+  const navigate = useNavigate();
+
   nbrCards.set(ApodSample.length);
 
   //gestion events
   function handleApodSelection(event: CustomEvent) {
     updateSelectionStatus(event.detail.isSelected);
+  }
+
+  function handleShowArticleDescription(event: CustomEvent) {
     sendApodExplanation(ApodSample[event.detail.id].explanation);
   }
 
-  const dispatch = createEventDispatcher();
+  function handleNavToDetails(event: CustomEvent) {
+    navigate("/article-details", { state: ApodSample[event.detail.id] });
+  }
 
   function sendApodExplanation(text: string) {
     dispatch("message", {
@@ -32,11 +42,13 @@
 <section class="apodSection">
   {#each ApodSample as apod, i}
     <DateArticle
-      source={apod.hdUrl}
+      source={apod.url}
       title={apod.title}
       date={apod.date}
       id={i}
       on:selectedArticle={handleApodSelection}
+      on:showArticleDescription={handleShowArticleDescription}
+      on:navToDetails={handleNavToDetails}
     />
   {/each}
 </section>

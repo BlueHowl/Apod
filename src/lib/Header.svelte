@@ -1,14 +1,14 @@
 <script lang="ts">
-  import { Link } from "svelte-routing";
+  import { Link } from "svelte-navigator";
 </script>
 
 <header class="apodHeader">
   <!--A modifier, l'URL de départ doit être configurée à /~d170051/APOD/ et non en dur comme ci-dessous-->
   <nav>
     <ul>
-      <li><Link to="/~d170051/APOD/" style="color: white;">Home</Link></li>
+      <li><Link to="/" style="color: white;">Home</Link></li>
       <li>
-        <Link to="/~d170051/APOD/my-apods" style="color: white;">My Apods</Link>
+        <Link to="/surprise" style="color: white;">Surprise</Link>
       </li>
     </ul>
   </nav>

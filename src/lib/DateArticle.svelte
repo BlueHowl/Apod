@@ -15,19 +15,29 @@
     isSelectedArticle = !isSelectedArticle;
     dispatch("selectedArticle", { id: id, isSelected: isSelectedArticle });
   }
+  
+  function onShowDescription() {
+    dispatch("showArticleDescription", { id: id});
+  }
+
+  function onNavToDetails() {
+    dispatch("navToDetails", { id: id});
+  }
+
 </script>
 
 <article
   id="dateArticle"
   class="dateArticle"
-  style={isSelectedArticle ? "box-shadow: 0 -0 15px teal;" : ""}
+  style={isSelectedArticle ? "box-shadow: 0 -0 15px red;" : ""}
   on:click={onSelectedArticle}
   on:keypress={onSelectedArticle}
 >
   <h3>{title}</h3>
   <img src={source} alt={title} />
   <div class="buttonHolder">
-    <Button label="Afficher la description" onClick={onSelectedArticle} />
+    <Button label="Afficher la description" onClick={onShowDescription} />
+    <Button label="Afficher les détails" onClick={onNavToDetails} />
   </div>
   <p>{date}</p>
 </article>
